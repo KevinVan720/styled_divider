@@ -37,29 +37,6 @@ class StyledDivider extends StatelessWidget {
 
   final DividerLineStyle lineStyle;
 
-  static BorderSide createBorderSide(BuildContext? context,
-      {Color? color, double? width}) {
-    final Color? effectiveColor = color ??
-        (context != null
-            ? (DividerTheme.of(context).color ?? Theme.of(context).dividerColor)
-            : null);
-    final double effectiveWidth = width ??
-        (context != null ? DividerTheme.of(context).thickness : null) ??
-        0.0;
-
-    // Prevent assertion since it is possible that context is null and no color
-    // is specified.
-    if (effectiveColor == null) {
-      return BorderSide(
-        width: effectiveWidth,
-      );
-    }
-    return BorderSide(
-      color: effectiveColor,
-      width: effectiveWidth,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final DividerThemeData dividerTheme = DividerTheme.of(context);
@@ -83,15 +60,21 @@ class StyledDivider extends StatelessWidget {
         child: Container(
           height: thickness,
           margin: EdgeInsetsDirectional.only(start: indent, end: endIndent),
-          decoration: DottedDecoration(
-            shape: Shape.line,
-            linePosition: LinePosition.bottom,
-            color: effectiveColor,
-            strokeWidth: thickness,
-            dash: dash
-                .map((e) => (e * max(thickness, 1)).round())
-                .toList(),
-          ),
+          decoration: lineStyle == DividerLineStyle.solid
+              ? BoxDecoration(
+                  border: Border(
+                    bottom: Divider.createBorderSide(context,
+                        color: color, width: thickness),
+                  ),
+                )
+              : DottedDecoration(
+                  shape: Shape.line,
+                  linePosition: LinePosition.bottom,
+                  color: effectiveColor,
+                  strokeWidth: thickness,
+                  dash:
+                      dash.map((e) => (e * max(thickness, 1)).round()).toList(),
+                ),
         ),
       ),
     );
@@ -128,7 +111,9 @@ class VerticalStyledDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     final DividerThemeData dividerTheme = DividerTheme.of(context);
     final double width = this.width ?? dividerTheme.space ?? 16.0;
-    final double thickness = this.thickness ?? dividerTheme.thickness ?? DividerTheme.of(context).thickness ??
+    final double thickness = this.thickness ??
+        dividerTheme.thickness ??
+        DividerTheme.of(context).thickness ??
         0.0;
     final double indent = this.indent ?? dividerTheme.indent ?? 0.0;
     final double endIndent = this.endIndent ?? dividerTheme.endIndent ?? 0.0;
@@ -145,15 +130,21 @@ class VerticalStyledDivider extends StatelessWidget {
         child: Container(
           width: thickness,
           margin: EdgeInsetsDirectional.only(top: indent, bottom: endIndent),
-          decoration: DottedDecoration(
-            shape: Shape.line,
-            linePosition: LinePosition.left,
-            color: effectiveColor,
-            strokeWidth: thickness,
-            dash: dash
-                .map((e) => (e * max(thickness, 1)).round())
-                .toList(),
-          ),
+          decoration: lineStyle == DividerLineStyle.solid
+              ? BoxDecoration(
+                  border: Border(
+                    bottom: Divider.createBorderSide(context,
+                        color: color, width: thickness),
+                  ),
+                )
+              : DottedDecoration(
+                  shape: Shape.line,
+                  linePosition: LinePosition.left,
+                  color: effectiveColor,
+                  strokeWidth: thickness,
+                  dash:
+                      dash.map((e) => (e * max(thickness, 1)).round()).toList(),
+                ),
         ),
       ),
     );

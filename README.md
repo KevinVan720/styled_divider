@@ -1,16 +1,14 @@
 # styled_divider
 
-A new Flutter project.
+Divider widget with different line styles.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+The interface is exactly like the built-in `Divider` (and `VerticalDivider`) widget except for the 
+`lineStyle` parameter. 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Currently, only four line styles are supported:
+- DividerLineStyle.solid
+- DividerLineStyle.dotted
+- DividerLineStyle.dashed
+- DividerLineStyle.dashdotted
