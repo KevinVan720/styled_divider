@@ -133,7 +133,7 @@ class VerticalStyledDivider extends StatelessWidget {
           decoration: lineStyle == DividerLineStyle.solid
               ? BoxDecoration(
                   border: Border(
-                    bottom: Divider.createBorderSide(context,
+                    left: Divider.createBorderSide(context,
                         color: color, width: thickness),
                   ),
                 )
