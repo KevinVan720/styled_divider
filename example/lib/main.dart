@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
-                const VerticalStyledDivider(
+                const StyledVerticalDivider(
                   color: Colors.blue,
                   width: 50,
                   thickness: 0,
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   indent: 10,
                   endIndent: 10,
                 ),
-                const VerticalStyledDivider(
+                const StyledVerticalDivider(
                   color: Colors.green,
                   width: 50,
                   thickness: 2,
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   indent: 20,
                   endIndent: 20,
                 ),
-                const VerticalStyledDivider(
+                const StyledVerticalDivider(
                   color: Colors.red,
                   width: 50,
                   thickness: 4,
@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   indent: 30,
                   endIndent: 30,
                 ),
-                const VerticalStyledDivider(
+                const StyledVerticalDivider(
                   color: Colors.black,
                   width: 50,
                   thickness: 8,

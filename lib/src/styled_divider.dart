@@ -81,8 +81,8 @@ class StyledDivider extends StatelessWidget {
   }
 }
 
-class VerticalStyledDivider extends StatelessWidget {
-  const VerticalStyledDivider({
+class StyledVerticalDivider extends StatelessWidget {
+  const StyledVerticalDivider({
     super.key,
     this.width,
     this.thickness,
