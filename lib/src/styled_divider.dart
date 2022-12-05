@@ -58,8 +58,9 @@ class StyledDivider extends StatelessWidget {
       height: height,
       child: Center(
         child: Container(
-          height: thickness,
-          margin: EdgeInsetsDirectional.only(start: indent, end: endIndent),
+          height: thickness / 2,
+          margin: EdgeInsets.only(
+              left: indent, right: endIndent, bottom: thickness / 2),
           decoration: lineStyle == DividerLineStyle.solid
               ? BoxDecoration(
                   border: Border(
@@ -128,8 +129,9 @@ class StyledVerticalDivider extends StatelessWidget {
       width: width,
       child: Center(
         child: Container(
-          width: thickness,
-          margin: EdgeInsetsDirectional.only(top: indent, bottom: endIndent),
+          width: thickness / 2,
+          margin: EdgeInsets.only(
+              top: indent, bottom: endIndent, left: thickness / 2),
           decoration: lineStyle == DividerLineStyle.solid
               ? BoxDecoration(
                   border: Border(
