@@ -1,7 +1,7 @@
 name: styled_divider
 description: Divider widget with different line styles.
 repository: https://github.com/KevinVan720/styled_divider
-version: 1.0.3
+version: 1.0.4
 
 environment:
   sdk: '>=2.17.1 <3.0.0'

@@ -57,18 +57,22 @@ class StyledDivider extends StatelessWidget {
     return SizedBox(
       height: height,
       child: Center(
-        child: Container(
-          height: thickness / 2,
-          margin: EdgeInsets.only(
-              left: indent, right: endIndent, bottom: thickness / 2),
-          decoration: lineStyle == DividerLineStyle.solid
-              ? BoxDecoration(
+        child: lineStyle == DividerLineStyle.solid
+            ? Container(
+                height: thickness,
+                margin: EdgeInsets.only(left: indent, right: endIndent),
+                decoration: BoxDecoration(
                   border: Border(
                     bottom: Divider.createBorderSide(context,
                         color: color, width: thickness),
                   ),
-                )
-              : DottedDecoration(
+                ),
+              )
+            : Container(
+                height: thickness / 2,
+                margin: EdgeInsets.only(
+                    left: indent, right: endIndent, bottom: thickness / 2),
+                decoration: DottedDecoration(
                   shape: Shape.line,
                   linePosition: LinePosition.bottom,
                   color: effectiveColor,
@@ -76,7 +80,7 @@ class StyledDivider extends StatelessWidget {
                   dash:
                       dash.map((e) => (e * max(thickness, 1)).round()).toList(),
                 ),
-        ),
+              ),
       ),
     );
   }
@@ -128,18 +132,22 @@ class StyledVerticalDivider extends StatelessWidget {
     return SizedBox(
       width: width,
       child: Center(
-        child: Container(
-          width: thickness / 2,
-          margin: EdgeInsets.only(
-              top: indent, bottom: endIndent, left: thickness / 2),
-          decoration: lineStyle == DividerLineStyle.solid
-              ? BoxDecoration(
+        child: lineStyle == DividerLineStyle.solid
+            ? Container(
+                width: thickness,
+                margin: EdgeInsets.only(top: indent, bottom: endIndent),
+                decoration: BoxDecoration(
                   border: Border(
                     left: Divider.createBorderSide(context,
                         color: color, width: thickness),
                   ),
-                )
-              : DottedDecoration(
+                ),
+              )
+            : Container(
+                width: thickness / 2,
+                margin: EdgeInsets.only(
+                    top: indent, bottom: endIndent, left: thickness / 2),
+                decoration: DottedDecoration(
                   shape: Shape.line,
                   linePosition: LinePosition.left,
                   color: effectiveColor,
@@ -147,7 +155,7 @@ class StyledVerticalDivider extends StatelessWidget {
                   dash:
                       dash.map((e) => (e * max(thickness, 1)).round()).toList(),
                 ),
-        ),
+              ),
       ),
     );
   }
