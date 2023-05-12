@@ -17,3 +17,7 @@ Fix a bug where the divider is not centered in the given space.
 ## [1.0.4] - 12.05.2022
 
 Roll back the case for solid line style.
+
+## [1.0.5] - 05.12.2023
+
+Update dependency.
